@@ -5,6 +5,7 @@ class Sorter
   end
 
   def sort
+    binding.pry
     @parsed_data.sort_by
   end
 
