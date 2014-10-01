@@ -1,6 +1,6 @@
 require 'pry'
-Dir['./services/**/*.rb'].each { |f| require f }
 Dir['./models/**/*.rb'].each { |f| require f }
+Dir['./services/**/*.rb'].each { |f| require f }
 
 if ARGV[0]
   puts "Usage: ruby lib/sort.rb <input_file> <input_file> <input_file>"

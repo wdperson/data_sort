@@ -10,12 +10,19 @@ class ParseLine
     "|" => ['last_name', 'first_name', 'middle_initial', 'campus', 'favorite_color', 'date_of_birth']
   }
 
-  def self.call(*args)
-    new(*args).sort
+  def self.call(line)
+    new(line).parse
   end
 
-  def initialize(input)
-    @input = input
+  def initialize(line)
+    @line = line
+  end
+
+  def parse
+    delimiter = @line.match(DELIMITERS).to_s
+    keys = KEYS[delimiter]
+    parsed_input = @line.split(delimiter)
+    Hash[keys.zip parsed_input]
   end
 
   def sort
@@ -24,7 +31,4 @@ class ParseLine
     Hash[keys.zip parsed_input]
   end
 
-  def detect_delimiter
-    @input.match(DELIMITERS).to_s
-  end
 end

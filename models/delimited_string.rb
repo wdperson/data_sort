@@ -12,15 +12,12 @@ class DelimitedString
   end
 
   def determine_type
-    file_data = File.open(@input, &:readline)
     file_data.match(DELIMITERS).to_s
   end
 
   def open_file
-    @input.each do |input|
-      File.open(input, 'r').each do |line|
-        @parsed_data << ParseLine.call(line)
-      end
+    File.open(@input, 'r').each do |line|
+      @parsed_data << ParseLine.call(line)
     end
   end
 
