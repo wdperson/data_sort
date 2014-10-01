@@ -1,3 +1,9 @@
-Kirlin, Mckayla, Atlanta, Maroon, 5/29/1986
-Parker, Matteo, Melbourne, Burnt Sienna, 2/14/1962
-Cummerata, Elliot, New York City, Neon Carrot, 4/3/1947
+Kirlin, Mckayla, Atlanta, 5/29/1986, Maroon
+Barrows, Anika, Hong Kong, 5/5/1965, Spring, Green
+Goyette, Timmothy, London, 10/2/1964, Pacific, Blue
+Nolan, Rhiannon, Los Angeles, 10/4/1974, Vivid, Tangerine
+Parker, Matteo, Melbourne, 2/14/1962, Burnt, Sienna
+Bednar, Filomena, New York City, 1/24/1980, Salmon
+Cummerata, Elliot, New York City, 4/3/1947, Neon, Carrot
+Wilkinson, Stacy, New York City, 1/22/1964, Shocking, Pink
+Bruen, Rigoberto, San Francisco, 12/1/1962, Raw, Umber

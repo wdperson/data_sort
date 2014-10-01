@@ -1,14 +1,16 @@
 class InputData
 
-  def initialize(path)
-    @path = path
+  def initialize(input)
+    @input = input
   end
 
   def sort
-    sorted_data = []
-    File.open(@path, 'r').each do |line|
-      sorted_data << ParseLine.call(line)
+    parsed_data = []
+    File.open(@input, 'r').each do |line|
+      parsed_data << ParseLine.call(line)
     end
-    sorted_data
+    SortData.new(parsed_data).order
   end
+
+
 end
