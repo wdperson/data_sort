@@ -4,7 +4,6 @@ class FileParser
   attr_reader :input
 
   def initialize(input)
-    binding.pry
     @input = input
     get_the_output_from_each_file
     output_based_on_sort
