@@ -8,8 +8,10 @@ if ARGV[0]
   exit
 end
 
+#Our input
 parser = FileParser.new( Dir['./data/*.txt'] )
 
-puts parser.sort_on { campus:'asc', last_name:'asc' }
-puts parser.sort_on { date_of_birth:'asc' }
-puts parser.sort_on { last_name:'desc' }
+#Our output
+puts parser.output_based_on_sort { campus:'asc', last_name:'asc' }
+puts parser.output_based_on_sort { date_of_birth:'asc' }
+puts parser.output_based_on_sort { last_name:'desc' }
