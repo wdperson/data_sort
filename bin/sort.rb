@@ -9,9 +9,9 @@ if ARGV[0]
 end
 
 #Our input
-parser = FileParser.new( Dir['./data/*.txt'] )
+FileParser.new( Dir['./data/*.txt'] )
 
 #Our output
-puts parser.output_based_on_sort { campus:'asc', last_name:'asc' }
-puts parser.output_based_on_sort { date_of_birth:'asc' }
-puts parser.output_based_on_sort { last_name:'desc' }
+#puts parser.output_based_on_sort { campus:'asc', last_name:'asc' }
+#puts parser.output_based_on_sort { date_of_birth:'asc' }
+#puts parser.output_based_on_sort { last_name:'desc' }

@@ -12,5 +12,4 @@ class OutputFormatter
     @output = CommaDelimitedString.new(@input).open_file if @type == ","
     @output
   end
-
 end

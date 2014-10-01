@@ -4,21 +4,23 @@ class FileParser
   attr_reader :input
 
   def initialize(input)
+    # We have a number of text files as our inputs
     @input = input
-    initialize_strings
+    @output = []
+    @type = ""
+    get_the_output_from_each_file
+    output_based_on_sort
   end
 
   def output_based_on_sort
     Sorter.new(@output).sort
   end
 
-  def initialize_strings
-    @output = []
+  def get_the_output_from_each_file
     @input.each do |input|
-      type = DelimitedString.new(input).determine_type
-      @output = OutputFormatter.new(type, input).output_initializer
+      @type = DelimitedString.new(input).determine_type
+      @output = OutputFormatter.new(@type, input).output_initializer
     end
     @output
   end
-
 end
