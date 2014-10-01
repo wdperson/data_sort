@@ -1,7 +1,4 @@
-require 'pry'
-
-class ParseLine
-  attr_reader :input
+class DelimitedString
 
   DELIMITERS = /[,$|]/
   KEYS = {
@@ -10,21 +7,21 @@ class ParseLine
     "|" => ['last_name', 'first_name', 'middle_initial', 'campus', 'favorite_color', 'date_of_birth']
   }
 
-  def self.call(*args)
-    new(*args).sort
-  end
-
   def initialize(input)
     @input = input
   end
 
-  def sort
-    keys = KEYS[delimiter]
-    parsed_input = input.split(delimiter)
-    Hash[keys.zip parsed_input]
+  def determine_type
+    file_data = File.open(@input, &:readline)
+    file_data.match(DELIMITERS).to_s
   end
 
-  def detect_delimiter
-    @input.match(DELIMITERS).to_s
+  def open_file
+    @input.each do |input|
+      File.open(input, 'r').each do |line|
+        @parsed_data << ParseLine.call(line)
+      end
+    end
   end
+
 end
