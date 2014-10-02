@@ -6,4 +6,7 @@ class DollarDelimitedString < DelimitedString
     @input = input
   end
 
+  def keys
+    ['last_name', 'first_name', 'middle_initial', 'campus', 'date_of_birth', 'favorite_color']
+  end
 end

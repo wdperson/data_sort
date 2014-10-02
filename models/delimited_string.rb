@@ -11,7 +11,7 @@ class DelimitedString
     @input = input
   end
 
-  def determine_type
+  def type
     file_data = File.open(@input, &:readline)
     file_data.match(DELIMITERS).to_s
   end
@@ -19,7 +19,7 @@ class DelimitedString
   def open_file
     @parsed_data = []
     File.open(@input, 'r').each do |line|
-      @parsed_data << ParseLine.call(line)
+      @parsed_data << ParseLine.new(line).parse_and_create_hash
     end
     @parsed_data
   end

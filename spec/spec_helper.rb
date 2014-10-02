@@ -1,6 +1,7 @@
 require 'pry'
 Dir["./lib/*.rb"].each {|file| require file }
 Dir["./services/*.rb"].each {|file| require file }
+Dir["./models/*.rb"].each {|file| require file }
 
 RSpec.configure do |config|
 

@@ -4,10 +4,16 @@ class Sorter
     @parsed_data = parsed_data
   end
 
-  def sort
-    puts @parsed_data.sort_by {|pd| pd["campus"]}.sort_by {|c| c["last_name"] }
-    puts @parsed_data.sort_by {|pd| pd["date_of_birth"]}
-    puts @parsed_data.sort_by {|pd| pd["last_name"] }.reverse
+  def sorted_by_campus_and_last_name
+    @parsed_data.sort_by {|pd| pd["last_name"]}.sort_by {|c| c["campus"] }
+  end
+
+  def sorted_by_date_of_birth
+    @parsed_data.sort_by {|pd| pd["date_of_birth"]}
+  end
+
+  def sorted_by_last_name_desc
+    @parsed_data.sort_by {|pd| pd["last_name"] }.reverse
   end
 
 end
