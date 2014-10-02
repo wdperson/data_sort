@@ -4,7 +4,7 @@ describe DelimitedString do
     subject { described_class.new(input).open_file }
 
     context "when input is comma separated" do
-      let(:input) { "data/comma.txt" }
+      let(:input) { "fixtures/comma.txt" }
       let(:comma_parsed_data) do
         [{"last_name"=>"Kirlin", "first_name"=>"Mckayla", "campus"=>"Atlanta", "favorite_color"=>"5/29/1986", "date_of_birth"=>"Maroon"},
          {"last_name"=>"Barrows", "first_name"=>"Anika", "campus"=>"HongKong", "favorite_color"=>"5/5/1965", "date_of_birth"=>"Spring"},
@@ -20,7 +20,7 @@ describe DelimitedString do
     end
 
     context "when input is dollar separated" do
-      let(:input) { "data/dollar.txt" }
+      let(:input) { "fixtures/dollar.txt" }
       let(:dollar_parsed_data) do
         [{"last_name"=>"Nolan", "first_name"=>"Rhiannon", "middle_initial"=>"O", "campus"=>"LA", "date_of_birth"=>"10-4-1974", "favorite_color"=>"VividTangerine"},
          {"last_name"=>"Wilkinson", "first_name"=>"Stacy", "middle_initial"=>"D", "campus"=>"NYC", "date_of_birth"=>"1-22-1964", "favorite_color"=>"ShockingPink"},
@@ -30,7 +30,7 @@ describe DelimitedString do
     end
 
     context "when input is pipe separated" do
-      let(:input) { "data/pipe.txt" }
+      let(:input) { "fixtures/pipe.txt" }
       let(:pipe_parsed_data) do
         [{"last_name"=>"Goyette", "first_name"=>"Timmothy", "middle_initial"=>"E", "campus"=>"London", "favorite_color"=>"PacificBlue", "date_of_birth"=>"10-2-1964"},
          {"last_name"=>"Bednar", "first_name"=>"Filomena", "middle_initial"=>"B", "campus"=>"NewYorkCity", "favorite_color"=>"Salmon", "date_of_birth"=>"1-24-1980"},
@@ -47,19 +47,19 @@ describe DelimitedString do
     end
 
     context "when input is comma separated" do
-      let(:input) { "data/comma.txt" }
+      let(:input) { "fixtures/comma.txt" }
       let(:file_data) { "Kirlin, Mckayla, Atlanta, 5/29/1986, Maroon\n" }
       it { is_expected.to eq "," }
     end
 
     context "when input is dollar separated" do
-      let(:input) { "data/dollar.txt" }
+      let(:input) { "fixtures/dollar.txt" }
       let(:file_data) { "Nolan $ Rhiannon $ O $ LA $ 10-4-1974 $ Vivid Tangerine\n" }
       it { is_expected.to eq "$" }
     end
 
     context "when input is pipe separated" do
-      let(:input) { "data/pipe.txt" }
+      let(:input) { "fixtures/pipe.txt" }
       let(:file_data) { "Goyette | Timmothy | E | London | Pacific Blue | 10-2-1964\n" }
       it { is_expected.to eq "|" }
     end
