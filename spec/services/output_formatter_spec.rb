@@ -1,3 +1,0 @@
-describe OutputFormatter do
-
-end
