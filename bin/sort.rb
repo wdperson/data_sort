@@ -9,7 +9,7 @@ if ARGV[0]
 end
 
 #Our input
-parser = FileParser.new( Dir['./data/*.txt'] )
+parser = FileParser.new( Dir['./data/*.txt'] ).process_each_file
 
 #Our output
 #puts parser.sort_on { campus:'asc', last_name:'asc' }

@@ -7,10 +7,19 @@ class ParseLine
     @line = line
   end
 
-  def parse_and_create_hash
-    delimiter = @line.match(DelimitedString::DELIMITERS).to_s
-    keys = DelimitedString::KEYS[delimiter]
-    parsed_input = @line.gsub(/\s+/, "").split(delimiter)
-    Hash[keys.zip parsed_input]
+  def create_hash
+    Hash[keys_for_data.zip parsed_data]
+  end
+
+  def parsed_data
+    @line.gsub(/\s+/, "").split(delimiter)
+  end
+
+  def keys_for_data
+    DelimitedString::KEYS[delimiter]
+  end
+
+  def delimiter
+    @line.match(DelimitedString::DELIMITERS).to_s
   end
 end

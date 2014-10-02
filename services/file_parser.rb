@@ -5,23 +5,22 @@ class FileParser
 
   def initialize(input)
     @input = input
-    process_file
   end
 
-  def process_file
+  def process_each_file
     @input.each do |input|
-      get_the_data_from_each_file(input)
+      parse_data(input)
       sort_the_data
       display_the_data
     end
   end
 
-  def get_the_data_from_each_file(input)
+  def parse_data(input)
     type = DelimitedString.new(input).type
-    initialize_object(type, input)
+    parse_data_for_type(type, input)
   end
 
-  def initialize_object(type, input)
+  def parse_data_for_type(type, input)
     @output = PipeDelimitedString.new(input).open_file if type == "|"
     @output = CommaDelimitedString.new(input).open_file if type == ","
     @output = DollarDelimitedString.new(input).open_file if type == "$"
@@ -34,6 +33,9 @@ class FileParser
   end
 
   def display_the_data
+    #OutputFormatter.new(@campus_last_name).display
+    #OutputFormatter.new(@date_of_birth).display
+    #OutputFormatter.new(@last_name_desc).display
     @campus_last_name.flatten.each {|o| puts "#{o.values}" }
     @date_of_birth.flatten.each {|o| puts "#{o.values}" }
     @last_name_desc.flatten.each {|o| puts "#{o.values}" }

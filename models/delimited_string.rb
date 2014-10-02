@@ -19,7 +19,7 @@ class DelimitedString
   def open_file
     @parsed_data = []
     File.open(@input, 'r').each do |line|
-      @parsed_data << ParseLine.new(line).parse_and_create_hash
+      @parsed_data << ParseLine.new(line).create_hash
     end
     @parsed_data
   end
