@@ -5,11 +5,11 @@ class Sorter
   end
 
   def sorted_by_campus_and_last_name
-    @parsed_data.sort_by {|pd| pd["last_name"]}.sort_by {|c| c["campus"] }
+    @parsed_data.sort_by {|pd| [pd["campus"], pd["last_name"]]}
   end
 
   def sorted_by_date_of_birth
-    @parsed_data.sort_by {|pd| pd["date_of_birth"]}
+    @parsed_data.sort_by { |pd| pd["date_of_birth"].split('/').last }
   end
 
   def sorted_by_last_name_desc

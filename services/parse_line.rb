@@ -12,7 +12,7 @@ class ParseLine
   end
 
   def parsed_data
-    @line.chop.split(delimiter)
+    @line.chop.split(delimiter).collect(&:strip)
   end
 
   def keys_for_data
