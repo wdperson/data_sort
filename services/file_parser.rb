@@ -56,5 +56,4 @@ class FileParser
   def display_the_data
     OutputFormatter.new(@sorted_output).display
   end
-
 end

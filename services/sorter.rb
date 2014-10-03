@@ -9,7 +9,7 @@ class Sorter
   end
 
   def sorted_by_date_of_birth
-    @parsed_data.sort_by { |pd| pd["date_of_birth"].split('/').last }
+    @parsed_data.sort_by { |pd| pd["date_of_birth"].split(/[\/-]/).last }
   end
 
   def sorted_by_last_name_desc

@@ -5,9 +5,9 @@ class OutputFormatter
   end
 
   def display
-    @data.each do |d|
-      DelimitedString::KEYS["$"].each do |key|
-        print "#{d[key]} "
+    @data.each do |data|
+      data.each do |k, v|
+        print "#{v} "
       end
       print "\n"
     end
