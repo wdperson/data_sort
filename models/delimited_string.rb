@@ -7,6 +7,12 @@ class DelimitedString
     "|" => ['last_name', 'first_name', 'middle_initial', 'campus', 'favorite_color', 'date_of_birth']
   }
 
+  DATATYPES = {
+    '$' => "dollar",
+    ',' => "comma",
+    '|' => "pipe"
+  }
+
   def initialize(input)
     @input = input
   end
@@ -16,12 +22,11 @@ class DelimitedString
     file_data.match(DELIMITERS).to_s
   end
 
-  def open_file
+  def parse_file_data
     @parsed_data = []
     File.open(@input, 'r').each do |line|
       @parsed_data << ParseLine.new(line).create_hash
     end
     @parsed_data
   end
-
 end

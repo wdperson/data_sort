@@ -1,3 +1,0 @@
-describe CommaDelimitedString do
-
-end

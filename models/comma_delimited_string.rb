@@ -6,8 +6,7 @@ class CommaDelimitedString < DelimitedString
     @input = input
   end
 
-  def keys
-    ['last_name', 'first_name', 'campus', 'favorite_color', 'date_of_birth']
+  def sort
+    Sorter.new(@input).sorted_by_campus_and_last_name
   end
-
 end

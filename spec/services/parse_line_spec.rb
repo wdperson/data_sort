@@ -1,6 +1,6 @@
 describe ParseLine do
 
-  subject { described_class.new(line).parse_and_create_hash }
+  subject { described_class.new(line).create_hash }
 
   context "when we have a comma delimiter" do
     let(:line) { "Kirlin, Mckayla, Atlanta, 5/29/1986, Maroon\n" }

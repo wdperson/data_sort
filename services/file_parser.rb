@@ -9,35 +9,52 @@ class FileParser
 
   def process_each_file
     @input.each do |input|
-      parse_data(input)
+      @file = input
+      determine_type
+      parse_the_data
       sort_the_data
       display_the_data
     end
   end
 
-  def parse_data(input)
-    type = DelimitedString.new(input).type
-    parse_data_for_type(type, input)
+  def determine_type
+    @type = DelimitedString.new(@file).type
   end
 
-  def parse_data_for_type(type, input)
-    @output = PipeDelimitedString.new(input).open_file if type == "|"
-    @output = CommaDelimitedString.new(input).open_file if type == ","
-    @output = DollarDelimitedString.new(input).open_file if type == "$"
+  def parse_the_data
+    send("parse_type_#{DelimitedString::DATATYPES[@type]}".to_sym)
+  end
+
+  def parse_type_comma
+    @parsed_output = CommaDelimitedString.new(@file).parse_file_data
+  end
+
+  def parse_type_pipe
+    @parsed_output = PipeDelimitedString.new(@file).parse_file_data
+  end
+
+  def parse_type_dollar
+    @parsed_output = DollarDelimitedString.new(@file).parse_file_data
   end
 
   def sort_the_data
-    @campus_last_name = Sorter.new(@output).sorted_by_campus_and_last_name
-    @date_of_birth = Sorter.new(@output).sorted_by_date_of_birth
-    @last_name_desc = Sorter.new(@output).sorted_by_last_name_desc
+    send("sort_type_#{DelimitedString::DATATYPES[@type]}".to_sym)
+  end
+
+  def sort_type_comma
+    @sorted_output = CommaDelimitedString.new(@parsed_output).sort
+  end
+
+  def sort_type_pipe
+    @sorted_output = PipeDelimitedString.new(@parsed_output).sort
+  end
+
+  def sort_type_dollar
+    @sorted_output = DollarDelimitedString.new(@parsed_output).sort
   end
 
   def display_the_data
-    #OutputFormatter.new(@campus_last_name).display
-    #OutputFormatter.new(@date_of_birth).display
-    #OutputFormatter.new(@last_name_desc).display
-    @campus_last_name.flatten.each {|o| puts "#{o.values}" }
-    @date_of_birth.flatten.each {|o| puts "#{o.values}" }
-    @last_name_desc.flatten.each {|o| puts "#{o.values}" }
+    OutputFormatter.new(@sorted_output).display
   end
+
 end

@@ -12,7 +12,7 @@ class ParseLine
   end
 
   def parsed_data
-    @line.gsub(/\s+/, "").split(delimiter)
+    @line.chop.split(delimiter)
   end
 
   def keys_for_data

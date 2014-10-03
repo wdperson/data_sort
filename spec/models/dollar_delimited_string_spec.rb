@@ -1,3 +1,0 @@
-describe DollarDelimitedString do
-
-end

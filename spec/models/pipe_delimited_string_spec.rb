@@ -1,3 +1,0 @@
-describe PipeDelimitedString do
-
-end
