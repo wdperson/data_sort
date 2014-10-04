@@ -10,15 +10,15 @@ class FileParser
   def process_each_file
     @input.each do |input|
       @file = input
-      determine_type
+      type
       parse_the_data
       sort_the_data
       display_the_data
     end
   end
 
-  def determine_type
-    @type = DelimitedString.new(@file).type
+  def type
+    @type ||= DelimitedString.new(@file).type
   end
 
   def parse_the_data
