@@ -5,12 +5,16 @@ class OutputFormatter
   end
 
   def display
-    @data.each do |data|
-      data.each do |k, v|
-        print "#{v} "
+    @data.each_with_index do |data,index|
+      print "Output: #{index+1}\n"
+      data.each do |hash|
+        print "#{hash["last_name"]} #{hash["first_name"]} #{hash["campus"]} #{date_format(hash["date_of_birth"])} #{hash["favorite_color"]} \n"
       end
       print "\n"
     end
   end
 
+  def date_format(date)
+    date.strftime('%-m/%-d/%Y')
+  end
 end
