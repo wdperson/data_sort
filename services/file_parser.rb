@@ -1,5 +1,3 @@
-require 'pry'
-
 class FileParser
   attr_reader :input
 

@@ -1,4 +1,3 @@
-require 'pry'
 Dir['./models/**/*.rb'].each { |f| require f }
 Dir['./services/**/*.rb'].each { |f| require f }
 
