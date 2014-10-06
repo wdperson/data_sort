@@ -3,6 +3,17 @@ Dir["./lib/*.rb"].each {|file| require file }
 Dir["./services/*.rb"].each {|file| require file }
 Dir["./models/*.rb"].each {|file| require file }
 
+def capture_stdout(&block)
+  original_stdout = $stdout
+  $stdout = fake = StringIO.new
+  begin
+    yield
+  ensure
+    $stdout = original_stdout
+  end
+  fake.string
+end
+
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|
