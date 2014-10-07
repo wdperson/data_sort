@@ -1,7 +1,7 @@
 class ParseLine
   attr_reader :input
 
-  ABBREVIATED_CITIES = {
+  CAMPUSES = {
     "LA" => "Los Angeles",
     "NYC" => "New York City",
     "SF" => "San Francisco"
@@ -13,10 +13,10 @@ class ParseLine
   end
 
   def create_hash
-    pd = Hash[keys_for_data.zip @line]
-    correct_abbreviated_cities(pd)
-    correct_date(pd)
-    pd
+    @pd = Hash[keys_for_data.zip @line]
+    correct_campuses
+    correct_date
+    @pd
   end
 
   def keys_for_data
@@ -27,12 +27,12 @@ class ParseLine
     @unparsed_line.match(DelimitedString::DELIMITERS).to_s
   end
 
-  def correct_abbreviated_cities(pd)
-    pd["campus"] = ABBREVIATED_CITIES[pd["campus"]] if ABBREVIATED_CITIES.has_key?(pd["campus"])
+  def correct_campuses
+    @pd["campus"] = CAMPUSES[@pd["campus"]] if CAMPUSES.has_key?(@pd["campus"])
   end
 
-  def correct_date(pd)
-    format = pd["date_of_birth"].include?('/') ? '%m/%d/%Y' : '%m-%d-%Y'
-    pd["date_of_birth"] = Date.strptime (pd["date_of_birth"]), format
+  def correct_date
+    format = @pd["date_of_birth"].include?('/') ? '%m/%d/%Y' : '%m-%d-%Y'
+    @pd["date_of_birth"] = Date.strptime (@pd["date_of_birth"]), format
   end
 end

@@ -1,7 +1,8 @@
 describe DelimitedString do
 
-  describe ".type" do
+  describe "#type" do
     subject { described_class.new(input).type }
+
     before(:each) do
       allow(File).to receive(:open) { file_data }
     end
@@ -25,7 +26,7 @@ describe DelimitedString do
     end
   end
 
-  describe ".parse_file_data" do
+  describe "#parse_file_data" do
     subject { described_class.new(input).parse_file_data }
 
     context "when input is comma separated" do

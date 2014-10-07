@@ -39,5 +39,4 @@ class DelimitedString
     @sorted_output << Sorter.new(@input).sorted_by_last_name_desc
     @sorted_output
   end
-
 end
