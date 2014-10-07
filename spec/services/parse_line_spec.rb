@@ -12,7 +12,7 @@ describe ParseLine do
 
     context "when we have a dollar delimiter" do
       let(:line) { "Nolan $ Rhiannon $ O $ LA $ 10-4-1974 $ Vivid Tangerine\n" }
-      let(:dollar_parsed_hash) { {"last_name"=>"Nolan", "first_name"=>"Rhiannon", "middle_initial"=>"O", "campus"=>"LA", "favorite_color"=>"Vivid Tangerine", "date_of_birth"=>Date.new(1974,10,4)} }
+      let(:dollar_parsed_hash) { {"last_name"=>"Nolan", "first_name"=>"Rhiannon", "middle_initial"=>"O", "campus"=>"Los Angeles", "favorite_color"=>"Vivid Tangerine", "date_of_birth"=>Date.new(1974,10,4)} }
 
       it { is_expected.to eq dollar_parsed_hash }
     end
@@ -74,5 +74,22 @@ describe ParseLine do
 
       it { is_expected.to eq delimiter }
     end
+  end
+
+  describe 'correct_abbreviated_cities' do
+    subject { described_class.new(line).correct_abbreviated_cities(pd) }
+    let(:line) { "Nolan $ Rhiannon $ O $ LA $ 10-4-1974 $ Vivid Tangerine\n" }
+    let(:pd) { {"last_name"=>"Nolan", "first_name"=>"Rhiannon", "middle_initial"=>"O", "campus"=>"LA", "date_of_birth"=>"10-4-1974", "favorite_color"=>"Vivid Tangerine"} }
+
+    it { is_expected.to eq "Los Angeles" }
+  end
+
+  describe 'correct_date' do
+    subject { described_class.new(line).correct_date(pd) }
+    let(:line) { "Nolan $ Rhiannon $ O $ LA $ 10-4-1974 $ Vivid Tangerine\n" }
+    let(:pd) { {"last_name"=>"Nolan", "first_name"=>"Rhiannon", "middle_initial"=>"O", "campus"=>"LA", "date_of_birth"=>"10-4-1974", "favorite_color"=>"Vivid Tangerine"} }
+    let(:corrected_date) { Date.new(1974,10,4) }
+
+    it { is_expected.to eq corrected_date }
   end
 end

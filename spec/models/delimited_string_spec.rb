@@ -41,9 +41,9 @@ describe DelimitedString do
     context "when input is dollar separated" do
       let(:input) { "spec/fixtures/dollar.txt" }
       let(:dollar_parsed_data) do
-        [{"last_name"=>"Nolan", "first_name"=>"Rhiannon", "middle_initial"=>"O", "campus"=>"LA", "date_of_birth"=>Date.new(1974,10,4), "favorite_color"=>"Vivid Tangerine"},
-         {"last_name"=>"Wilkinson", "first_name"=>"Stacy", "middle_initial"=>"D", "campus"=>"NYC", "date_of_birth"=>Date.new(1964,1,22), "favorite_color"=>"Shocking Pink"},
-         {"last_name"=>"Bruen", "first_name"=>"Rigoberto", "middle_initial"=>"F", "campus"=>"SF", "date_of_birth"=>Date.new(1962,12,1), "favorite_color"=>"Raw Umber"}]
+        [{"last_name"=>"Nolan", "first_name"=>"Rhiannon", "middle_initial"=>"O", "campus"=>"Los Angeles", "date_of_birth"=>Date.new(1974,10,4), "favorite_color"=>"Vivid Tangerine"},
+         {"last_name"=>"Wilkinson", "first_name"=>"Stacy", "middle_initial"=>"D", "campus"=>"New York City", "date_of_birth"=>Date.new(1964,1,22), "favorite_color"=>"Shocking Pink"},
+         {"last_name"=>"Bruen", "first_name"=>"Rigoberto", "middle_initial"=>"F", "campus"=>"San Francisco", "date_of_birth"=>Date.new(1962,12,1), "favorite_color"=>"Raw Umber"}]
       end
       it { is_expected.to eq dollar_parsed_data }
     end
