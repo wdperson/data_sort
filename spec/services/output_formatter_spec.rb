@@ -13,7 +13,7 @@ describe OutputFormatter do
     end
 
     let(:output_to_display) do
-      "Output: 1\nCummerata Elliot New York City 4/3/1947 Neon Carrot \nParker Matteo Melbourne 4/3/1947 Burnt Sienna \nKirlin Mckayla Atlanta 4/3/1947 Maroon \n\n"
+      "Output 1:\nCummerata Elliot New York City 4/3/1947 Neon Carrot\nParker Matteo Melbourne 4/3/1947 Burnt Sienna\nKirlin Mckayla Atlanta 4/3/1947 Maroon\n\n"
     end
 
     it { is_expected.to eq output_to_display }
