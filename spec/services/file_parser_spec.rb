@@ -1,6 +1,6 @@
 describe FileParser do
 
-  describe 'deterine_type' do
+  describe '#deterine_type' do
     let(:file) { "spec/fixtures/invalid_type.txt" }
 
     it "raises an error if the type is not yet implemented" do

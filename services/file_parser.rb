@@ -9,7 +9,6 @@ class FileParser
     @parsed_output = []
     @input.each do |input|
       @file = input
-      determine_type
       @parsed_output << parse_the_data
     end
     sort_the_data
