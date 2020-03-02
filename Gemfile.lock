@@ -1,7 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.0)
     diff-lcs (1.2.5)
+    jaro_winkler (1.5.4)
+    parallel (1.19.1)
+    parser (2.7.0.4)
+      ast (~> 2.4.0)
+    rainbow (3.0.0)
+    rexml (3.2.4)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -14,15 +21,26 @@ GEM
     rspec-mocks (3.1.1)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.0)
+    rubocop (0.80.1)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      rexml
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.7)
+    ruby-progressbar (1.10.1)
+    unicode-display_width (1.6.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rspec
+  rubocop
 
 RUBY VERSION
-   ruby 2.1.3p242
+   ruby 2.6.5p114
 
 BUNDLED WITH
-   1.15.4
+   1.17.2
