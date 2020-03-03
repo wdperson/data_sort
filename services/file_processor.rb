@@ -3,7 +3,6 @@
 # Parses, sorts and displays the data
 class FileProcessor
   attr_reader :input
-  attr_accessor :parsed_output, :sorted_output
 
   def initialize(input)
     @input = input
