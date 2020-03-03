@@ -5,12 +5,6 @@
 	* Assembles a collection of student records by parsing data from 3 different files
 	* Displays the collection 3 times, sorted 3 different ways
 
-* Besides a testing framework (RSpec, test-unit, or minitest), please only use Ruby and its standard library (i.e. no other gems)
-
-
-* Please use the latest stable version of Ruby MRI
-
-
 # Criteria
 
 The qualities the code should display:
