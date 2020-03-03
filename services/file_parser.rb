@@ -1,33 +1,15 @@
-class FileParser
-  attr_reader :input
+# frozen_string_literal: true
 
+class FileParser
   def initialize(input)
     @input = input
   end
 
-  def process_each_file
-    @parsed_output = []
-    @input.each do |input|
-      @file = input
-      @parsed_output << parse_the_data
+  def parse
+    @input.map do |input|
+      File.open(input, 'r').map do |line|
+        LineParser.new(line).parse
+      end
     end
-    sort_the_data
-    display_the_data
-  end
-
-  def determine_type
-    @type = DelimitedString.new(@file).type
-  end
-
-  def parse_the_data
-    DelimitedString.new(@file).parse_file_data
-  end
-
-  def sort_the_data
-    @sorted_output = DelimitedString.new(@parsed_output.flatten).sort
-  end
-
-  def display_the_data
-    OutputFormatter.new(@sorted_output).display
   end
 end
