@@ -1,9 +1,10 @@
-Dir['./models/**/*.rb'].each { |f| require f }
-Dir['./services/**/*.rb'].each { |f| require f }
+# frozen_string_literal: true
+
+Dir['./services/**/*.rb'].sort.each { |f| require f }
 
 if ARGV[0]
-  puts "Usage: ruby sort.rb"
+  puts 'Usage: ruby sort.rb'
   exit
 end
 
-FileParser.new( Dir['./data/*.txt'] ).process_each_file
+FileProcessor.new(Dir['./data/*.txt']).process_each_file
