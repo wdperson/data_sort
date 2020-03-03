@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
-
 # LineParser service to parse each line of data
 class LineParser
   attr_reader :input
