@@ -7,4 +7,4 @@ if ARGV[0]
   exit
 end
 
-FileProcessor.new(Dir['./data/*.txt']).process_each_file
+FileProcessor.new(Dir['./data_files/*.txt']).process_each_file
