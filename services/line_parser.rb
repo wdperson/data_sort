@@ -1,3 +1,4 @@
+require_relative 'sorter'
 # frozen_string_literal: true
 
 # LineParser service to parse each line of data
@@ -10,27 +11,16 @@ class LineParser
     'SF' => 'San Francisco'
   }.freeze
 
-  def initialize(line)
+  def initialize(line, hash_keys)
     @line = line
+    @hash_keys = hash_keys
   end
 
   def parse
-    @pd = Hash[hash_keys.zip parsed_line]
+    @pd = Hash[@hash_keys.zip @line]
     correct_campuses
     correct_date
     @pd
-  end
-
-  def parsed_line
-    @line.split(matched_line_delimiter).collect(&:strip)
-  end
-
-  def hash_keys
-    Sorter::KEYS[matched_line_delimiter]
-  end
-
-  def matched_line_delimiter
-    @line.match(Sorter::DELIMITERS).to_s
   end
 
   def correct_campuses

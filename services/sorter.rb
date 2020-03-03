@@ -5,13 +5,6 @@ require 'date'
 # Sorter service to take in parsed data and then sort
 # based on requirements
 class Sorter
-  DELIMITERS = /[,$|]/.freeze
-  KEYS = {
-    '$' => %w[last_name first_name middle_initial campus date_of_birth favorite_color],
-    ',' => %w[last_name first_name campus favorite_color date_of_birth],
-    '|' => %w[last_name first_name middle_initial campus favorite_color date_of_birth]
-  }.freeze
-
   def initialize(input)
     @input = input
     @sorted_output = []
